@@ -1,49 +1,54 @@
+# ========================== Imports ==========================
 import streamlit as st
+import os
+import sys
+import subprocess
+import base64
+import random
+import io
+import re
+import json
+import time
+import calendar
+from datetime import datetime
+import pandas as pd
 import nltk
 import spacy
 from spacy.cli import download
-import os
 
-# Check if the model is installed
-if not os.path.exists("en_core_web_sm"):
-    download("en_core_web_sm")
+# PDF and Text processing
+from pdfminer3.layout import LAParams, LTTextBox
+from pdfminer3.pdfpage import PDFPage
+from pdfminer3.pdfinterp import PDFResourceManager, PDFPageInterpreter
+from pdfminer3.converter import TextConverter
 
-# Load the model
-nlp = spacy.load("en_core_web_sm")
+# UI and Visualization
+from streamlit_tags import st_tags
+from PIL import Image
+import plotly.express as px
 
+# External tools and media
+import pafy
+import youtube_dl
+import pymysql
 
-import subprocess
-import sys
+# Course Data
+from Courses import (
+    ds_course, web_course, android_course, ios_course, uiux_course,
+    business_finance_course, healthcare_medical_course,
+    engineering_manufacturing_course, science_research_course,
+    education_academia_course, creative_design_course,
+    media_communication_course, resume_videos, interview_videos
+)
 
-# Install model if not present
+# ========================== spaCy Model Setup ==========================
+# Ensure spaCy model is installed
 try:
     nlp = spacy.load("en_core_web_sm")
 except:
     subprocess.call([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
     nlp = spacy.load("en_core_web_sm")
 
-import pandas as pd
-import base64, random
-import time, datetime
-from pyresparser import ResumeParser
-from pdfminer3.layout import LAParams, LTTextBox
-from pdfminer3.pdfpage import PDFPage
-from pdfminer3.pdfinterp import PDFResourceManager
-from pdfminer3.pdfinterp import PDFPageInterpreter
-from pdfminer3.converter import TextConverter
-import io, random
-from streamlit_tags import st_tags
-from PIL import Image
-import pymysql
-from Courses import ds_course, web_course, android_course, ios_course, uiux_course, business_finance_course, healthcare_medical_course, engineering_manufacturing_course, science_research_course, education_academia_course, creative_design_course, media_communication_course, resume_videos, interview_videos
-import pafy
-import plotly.express as px
-import re
-from datetime import datetime
-import time
-import calendar
-import json
-import youtube_dl
 
 def fetch_yt_video(link):
     video = pafy.new(link)
