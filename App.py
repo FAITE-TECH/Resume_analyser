@@ -1,8 +1,27 @@
 import streamlit as st
 import nltk
 import spacy
-nltk.download('stopwords')
-spacy.load('en_core_web_sm')
+from spacy.cli import download
+import os
+
+# Check if the model is installed
+if not os.path.exists("en_core_web_sm"):
+    download("en_core_web_sm")
+
+# Load the model
+nlp = spacy.load("en_core_web_sm")
+
+
+import subprocess
+import sys
+
+# Install model if not present
+try:
+    nlp = spacy.load("en_core_web_sm")
+except:
+    subprocess.call([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
+    nlp = spacy.load("en_core_web_sm")
+
 import pandas as pd
 import base64, random
 import time, datetime
