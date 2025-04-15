@@ -1,7 +1,7 @@
 pdfminer3
+pyresparser
 streamlit
 pandas
-pyresparser
 pafy
 plotly
 pymysql
