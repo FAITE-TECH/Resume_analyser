@@ -17,6 +17,7 @@ import spacy
 from spacy.cli import download
 
 # PDF and Text processing
+from pyresparser import ResumeParser
 from pdfminer3.layout import LAParams, LTTextBox
 from pdfminer3.pdfpage import PDFPage
 from pdfminer3.pdfinterp import PDFResourceManager, PDFPageInterpreter
