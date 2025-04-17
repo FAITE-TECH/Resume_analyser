@@ -28,6 +28,7 @@ import calendar
 import json
 import youtube_dl
 
+
 def fetch_yt_video(link):
     video = pafy.new(link)
     return video.title
@@ -137,7 +138,13 @@ def extract_experience(resume_text):
     return total_experience_str, experiences
 
 
-connection = pymysql.connect(host='localhost', user='root', password='', db='sra')
+connection = pymysql.connect(
+    host='162.215.208.184',
+    user='faiteplu_faite',
+    password='=a81wtkYSalw',
+    db='faiteplu_resume',
+    port=3306
+)
 cursor = connection.cursor()
 
 
@@ -173,9 +180,9 @@ def run():
     st.image(img)
 
     # Create the DB
-    db_sql = """CREATE DATABASE IF NOT EXISTS SRA;"""
-    cursor.execute(db_sql)
-    connection.select_db("sra")
+    # db_sql = """CREATE DATABASE IF NOT EXISTS SRA;"""
+    # cursor.execute(db_sql)
+    # connection.select_db("faiteplu_resume")
 
     # Create table
     DB_table_name = 'user_data'
