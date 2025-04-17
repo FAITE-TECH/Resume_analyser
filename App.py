@@ -1,55 +1,32 @@
-# ========================== Imports ==========================
 import streamlit as st
-import os
-import sys
-import subprocess
-import base64
-import random
-import io
-import re
-import json
-import time
-import calendar
-from datetime import datetime
-import pandas as pd
 import nltk
 import spacy
-from spacy.cli import download
-
-# PDF and Text processing
+import nltk
+nltk.data.path.append('./nltk_data')
+from nltk.corpus import stopwords
+spacy.load('en_core_web_sm')
+import pandas as pd
+import base64, random
+import time, datetime
 from pyresparser import ResumeParser
 from pdfminer3.layout import LAParams, LTTextBox
 from pdfminer3.pdfpage import PDFPage
-from pdfminer3.pdfinterp import PDFResourceManager, PDFPageInterpreter
+from pdfminer3.pdfinterp import PDFResourceManager
+from pdfminer3.pdfinterp import PDFPageInterpreter
 from pdfminer3.converter import TextConverter
-
-# UI and Visualization
+import io, random
 from streamlit_tags import st_tags
 from PIL import Image
-import plotly.express as px
-
-# External tools and media
-import pafy
-import youtube_dl
 import pymysql
-
-# Course Data
-from Courses import (
-    ds_course, web_course, android_course, ios_course, uiux_course,
-    business_finance_course, healthcare_medical_course,
-    engineering_manufacturing_course, science_research_course,
-    education_academia_course, creative_design_course,
-    media_communication_course, resume_videos, interview_videos
-)
-
-# ========================== spaCy Model Setup ==========================
-# Ensure spaCy model is installed
-try:
-    nlp = spacy.load("en_core_web_sm")
-except:
-    subprocess.call([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
-    nlp = spacy.load("en_core_web_sm")
-
+from Courses import ds_course, web_course, android_course, ios_course, uiux_course, business_finance_course, healthcare_medical_course, engineering_manufacturing_course, science_research_course, education_academia_course, creative_design_course, media_communication_course, resume_videos, interview_videos
+import pafy
+import plotly.express as px
+import re
+from datetime import datetime
+import time
+import calendar
+import json
+import youtube_dl
 
 def fetch_yt_video(link):
     video = pafy.new(link)
@@ -160,13 +137,7 @@ def extract_experience(resume_text):
     return total_experience_str, experiences
 
 
-connection = pymysql.connect(
-    host='162.215.208.184',
-    user='faiteplu_faite',
-    password='=a81wtkYSalw',
-    db='faiteplu_resume',
-    port=3306
-)
+connection = pymysql.connect(host='localhost', user='root', password='', db='sra')
 cursor = connection.cursor()
 
 
@@ -202,9 +173,9 @@ def run():
     st.image(img)
 
     # Create the DB
-    # db_sql = """CREATE DATABASE IF NOT EXISTS SRA;"""
-    # cursor.execute(db_sql)
-    # connection.select_db("faiteplu_resume")
+    db_sql = """CREATE DATABASE IF NOT EXISTS SRA;"""
+    cursor.execute(db_sql)
+    connection.select_db("sra")
 
     # Create table
     DB_table_name = 'user_data'
