@@ -3,8 +3,24 @@ import streamlit as st
 # Core NLP libraries
 import nltk
 import spacy
-nltk.data.path.append('./nltk_data')
+import os
+
+# --- Set up folders for model/data storage ---
+nltk_data_dir = './nltk_data'
+spacy_data_dir = './spacy_data'
+os.makedirs(nltk_data_dir, exist_ok=True)
+os.makedirs(spacy_data_dir, exist_ok=True)
+
+nltk.data.path.append(nltk_data_dir)
+os.environ["SPACY_DATA_PATH"] = spacy_data_dir
+
 from nltk.corpus import stopwords
+
+# Download NLTK stopwords if not already available
+try:
+    _ = stopwords.words('english')
+except LookupError:
+    nltk.download('stopwords', download_dir=nltk_data_dir)
 
 # Ensure spaCy model is loaded
 try:
@@ -14,11 +30,11 @@ except OSError:
     download("en_core_web_sm")
     nlp = spacy.load("en_core_web_sm")
 
-# Data handling
+# --- Data handling ---
 import pandas as pd
 import numpy as np
 
-# Utility
+# --- Utility ---
 import base64
 import random
 import time
@@ -28,26 +44,26 @@ import re
 import json
 import io
 
-# File & Resume parsing
+# --- File & Resume parsing ---
 from pyresparser import ResumeParser
 from pdfminer3.layout import LAParams, LTTextBox
 from pdfminer3.pdfpage import PDFPage
 from pdfminer3.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer3.converter import TextConverter
 
-# Streamlit plugins & visuals
+# --- Streamlit plugins & visuals ---
 from streamlit_tags import st_tags
 from PIL import Image
 import plotly.express as px
 
-# Video & Media
+# --- Video & Media ---
 import pafy
 import youtube_dl
 
-# Database
+# --- Database ---
 import pymysql
 
-# Courses & video content
+# --- Courses & videos ---
 from Courses import (
     ds_course, web_course, android_course, ios_course, uiux_course,
     business_finance_course, healthcare_medical_course, engineering_manufacturing_course,
@@ -55,11 +71,12 @@ from Courses import (
     media_communication_course, resume_videos, interview_videos
 )
 
-
-
+# --- YouTube helper ---
 def fetch_yt_video(link):
     video = pafy.new(link)
     return video.title
+
+
 
 
 def get_table_download_link(df, filename, text):
