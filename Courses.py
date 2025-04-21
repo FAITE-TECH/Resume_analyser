@@ -41,6 +41,49 @@ ios_course = [['IOS App Development by LinkedIn','https://www.linkedin.com/learn
               ['Learn Swift by Codecademy','https://www.codecademy.com/learn/learn-swift'],
               ['Swift Tutorial - Full Course for Beginners [Free]','https://youtu.be/comQ1-x2a1Q'],
               ['Learn Swift Fast - [Free]','https://youtu.be/FcsY1YPBwzQ']]
+
+business_finance_course = [['Financial Markets by Yale University', 'https://www.coursera.org/learn/financial-markets'],
+                           ['Corporate Finance Fundamentals by Coursera', 'https://www.coursera.org/specializations/finance'],
+                           ['Accounting for Decision Making by University of Michigan', 'https://www.edx.org/course/accounting-for-decision-making'],
+                           ['Investment Management by University of Geneva', 'https://www.coursera.org/learn/investment-management'],
+                           ['The Complete Financial Analyst Course by Udemy', 'https://www.udemy.com/course/the-complete-financial-analyst-course/']]
+
+healthcare_medical_course = [['Medical Neuroscience by Duke University', 'https://www.coursera.org/learn/medical-neuroscience'],
+                             ['Introduction to Healthcare by Stanford University', 'https://online.stanford.edu/courses/som-xche0001-introduction-healthcare'],
+                             ['Epidemiology: The Basic Science of Public Health', 'https://www.coursera.org/learn/epidemiology'],
+                             ['Health Informatics on FHIR by Georgia Tech', 'https://www.edx.org/course/health-informatics-on-fhir'],
+                             ['Introduction to Psychology by Yale', 'https://www.coursera.org/learn/introduction-psychology']]
+
+engineering_manufacturing_course = [['Introduction to Systems Engineering', 'https://www.coursera.org/learn/systems-engineering'],
+                                    ['Manufacturing Process Control', 'https://www.edx.org/course/manufacturing-process-control'],
+                                    ['Electric Power Systems by Coursera', 'https://www.coursera.org/learn/electric-power-systems'],
+                                    ['Mechanical Behavior of Materials', 'https://www.edx.org/course/mechanical-behavior-of-materials'],
+                                    ['Supply Chain Management by MIT', 'https://www.edx.org/micromasters/mitx-supply-chain-management']]
+
+science_research_course = [['Scientific Computing by MIT', 'https://www.edx.org/course/scientific-computing'],
+                           ['Data Science for Research by Harvard', 'https://www.edx.org/course/data-science-for-research'],
+                           ['Experimental Design by Stanford', 'https://www.coursera.org/learn/experimental-design'],
+                           ['Research Ethics by University of Tokyo', 'https://www.edx.org/course/research-ethics'],
+                           ['The Science of Well-Being by Yale', 'https://www.coursera.org/learn/the-science-of-well-being']]
+
+education_academia_course = [['Learning How to Learn by Coursera', 'https://www.coursera.org/learn/learning-how-to-learn'],
+                             ['Foundations of Teaching for Learning by Commonwealth Education Trust', 'https://www.coursera.org/specializations/teacher-skills'],
+                             ['The Inclusive STEM Classroom', 'https://www.edx.org/course/the-inclusive-stem-classroom'],
+                             ['University Teaching by Harvard', 'https://www.edx.org/course/university-teaching'],
+                             ['How to Write and Publish a Scientific Paper', 'https://www.coursera.org/learn/scientific-writing']]
+
+creative_design_course = [['Graphic Design Specialization by Coursera', 'https://www.coursera.org/specializations/graphic-design'],
+                          ['User Experience Design Fundamentals', 'https://www.udemy.com/course/user-experience-design-fundamentals/'],
+                          ['Design Thinking for Innovation by University of Virginia', 'https://www.coursera.org/learn/uva-darden-design-thinking-innovation'],
+                          ['Adobe Illustrator CC – Essentials Training', 'https://www.udemy.com/course/adobe-illustrator-cc-essentials-training/'],
+                          ['3D Animation for Beginners', 'https://www.udemy.com/course/3d-animation-for-beginners/']]
+
+media_communication_course = [['Introduction to Public Speaking by Coursera', 'https://www.coursera.org/learn/public-speaking'],
+                              ['Journalism for Social Change', 'https://www.edx.org/course/journalism-for-social-change'],
+                              ['Digital Marketing Specialization by University of Illinois', 'https://www.coursera.org/specializations/digital-marketing'],
+                              ['Writing for Media by Udemy', 'https://www.udemy.com/course/writing-for-media/'],
+                              ['Content Marketing by HubSpot Academy', 'https://academy.hubspot.com/courses/content-marketing']]
+
 uiux_course = [['Google UX Design Professional Certificate','https://www.coursera.org/professional-certificates/google-ux-design'],
                ['UI / UX Design Specialization','https://www.coursera.org/specializations/ui-ux-design'],
                ['The Complete App Design Course - UX, UI and Design Thinking','https://www.udemy.com/course/the-complete-app-design-course-ux-and-ui-design/'],
